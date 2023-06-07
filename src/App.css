@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+.wallpaper {
+  /*Positioning stuff*/
+  position: fixed;
+  z-index: -1;
+  /*Box model stuff*/
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(235, 21%, 11%);
+  background-image: url(assets/images/bg-desktop-dark.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  align-items: center;
+  /* border: 2px solid green; */
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
+  padding-top: 5em;
+  margin: auto;
+  width: 38vw;
+  height: 80vh;
+}
+
+header {
+  width: 100%;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  color: hsl(236, 33%, 92%);
+  font-weight: 700;
+  /* outline: 2px solid white; */
+  /* border: 2px solid red; */
 }
 
-.App-link {
-  color: #61dafb;
+header > h1 {
+  letter-spacing: 0.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputDiv,
+.todoLists,
+.todoList {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space space-between;
+  gap: 1em;
+  background-color: hsl(235, 24%, 19%);
+  padding: 1rem;
+}
+
+.inputDiv > div {
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 100%;
+  border: 1px solid hsl(236, 9%, 61%);
+}
+
+.inputTasks {
+  background: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  /* border: 2px solid red; */
+  color: hsl(234, 39%, 85%);
+  border-radius: 4px;
+  font-size: larger;
+  font-weight: 500;
+}
+
+.todoLists {
+  margin-top: 1.5em;
+  flex-direction: column;
+  border-radius: 4px;
+  padding-bottom: 0;
+}
+
+.todoList {
+  width: 100%;
+  border-bottom: 1px solid hsl(234, 11%, 52%);
 }
