@@ -1,20 +1,45 @@
 import React from "react";
+import checkIcon from "../../assets/images/icon-check.svg";
 
-const TodoLists = () => {
-  var listItems = [
-    { id: 1, text: "Complete Online JavaScript Course", completed: true },
-    { id: 2, text: "10 minutes meditation", completed: true },
-    { id: 3, text: "Jog around the park 3X", completed: false },
-    { id: 4, text: "Pick up groceries", completed: false },
-    { id: 5, text: "Complete todo app", completed: false },
-    { id: 6, text: "Read for an hour", completed: false },
-  ];
+const TodoLists = ({ listItems, setListItems }) => {
+  function updateItem(index, item) {
+    let tempLists = [...listItems];
+    if (tempLists[index].completed) {
+      tempLists[index].completed = false;
+    } else {
+      tempLists[index].completed = true;
+    }
+    setListItems(tempLists);
+  }
+
+  function deleteItem(index) {
+    setListItems(listItems.filter((val, i) => i !== index));
+  }
 
   return (
     <div className="todoLists">
       {listItems.map((item, index) => (
-        <div key={item.id}>
-          {item.text}
+        <div className="inputDiv todoList" key={item.id}>
+          <div>
+            {item.completed ? (
+              <div
+                className="radioBtn checkImageDiv"
+                onClick={() => updateItem(index)}
+              >
+                <img src={checkIcon} alt="checked" />
+              </div>
+            ) : (
+              <div className="radioBtn" onClick={() => updateItem(index)}></div>
+            )}
+          </div>
+          <p
+            style={{ textDecoration: item.completed ? "line-through" : "none" }}
+          >
+            {item.text}
+          </p>
+          <button className="deleteBtn" onClick={() => deleteItem(index)}>
+            X
+          </button>
         </div>
       ))}
     </div>
